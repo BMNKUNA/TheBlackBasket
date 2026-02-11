@@ -3,22 +3,26 @@ import { Heart, Globe, Users, Shield } from 'lucide-react'
 const features = [
   {
     name: 'Authentic Experiences',
-    description: 'We curate genuine cultural experiences that go beyond typical tourist attractions, connecting you with local communities.',
+    description:
+      'We curate genuine cultural experiences that go beyond typical tourist attractions, connecting you with local communities.',
     icon: Heart,
   },
   {
     name: 'Expert Local Knowledge',
-    description: 'Over 10 years of firsthand experience exploring Africa and building relationships with local communities.',
+    description:
+      'Over 10 years of firsthand experience exploring Africa and building relationships with local communities.',
     icon: Globe,
   },
   {
     name: 'Personalized Itineraries',
-    description: 'Every journey is uniquely designed based on your interests, budget, and travel style.',
+    description:
+      'Every journey is uniquely designed based on your interests, budget, and travel style.',
     icon: Users,
   },
   {
     name: '24/7 Support',
-    description: 'From planning to your return home, we\'re available around the clock to ensure your journey is smooth.',
+    description:
+      "From planning to your return home, we're available around the clock to ensure your journey is smooth.",
     icon: Shield,
   },
 ]
@@ -31,8 +35,10 @@ export function AboutSection() {
           <h2 className="text-3xl font-bold tracking-tight sm:text-4xl mb-4">
             Why Choose The Black Basket Travel
           </h2>
+
+          {/* FIXED JSX TEXT */}
           <p className="text-lg text-muted-foreground text-pretty">
-            We're not just a travel company—we're your partners in creating life-changing adventures.
+            {"We're not just a travel company—we're your partners in creating life-changing adventures."}
           </p>
         </div>
 

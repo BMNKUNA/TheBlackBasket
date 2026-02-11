@@ -8,14 +8,14 @@ import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Separator } from '@/components/ui/separator'
-import { 
-  Clock, 
-  Download, 
-  CheckCircle, 
+import {
+  Clock,
+  Download,
+  CheckCircle,
   XCircle,
   ArrowLeft,
   Mail,
-  Phone
+  Phone,
 } from 'lucide-react'
 import { client } from '@/sanity/client'
 import { tourBySlugQuery, siteSettingsQuery } from '@/sanity/queries'
@@ -34,10 +34,14 @@ async function getTourData(slug: string) {
   }
 }
 
-export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>
+}) {
   const { slug } = await params
   const { tour } = await getTourData(slug)
-  
+
   if (!tour) {
     return {
       title: 'Tour Not Found',
@@ -50,7 +54,11 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   }
 }
 
-export default async function TourDetailPage({ params }: { params: Promise<{ slug: string }> }) {
+export default async function TourDetailPage({
+  params,
+}: {
+  params: Promise<{ slug: string }>
+}) {
   const { slug } = await params
   const { tour, settings } = await getTourData(slug)
 
@@ -66,7 +74,7 @@ export default async function TourDetailPage({ params }: { params: Promise<{ slu
         <div className="relative h-[400px] lg:h-[500px] w-full">
           {tour.image?.asset?.url && (
             <Image
-              src={tour.image.asset.url || "/placeholder.svg"}
+              src={tour.image.asset.url || '/placeholder.svg'}
               alt={tour.title}
               fill
               className="object-cover"
@@ -76,7 +84,11 @@ export default async function TourDetailPage({ params }: { params: Promise<{ slu
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
           <div className="absolute bottom-0 left-0 right-0 p-6 lg:p-8">
             <div className="mx-auto max-w-7xl">
-              <Button variant="ghost" asChild className="mb-4 text-white hover:text-white hover:bg-white/20 bg-transparent">
+              <Button
+                variant="ghost"
+                asChild
+                className="mb-4 text-white hover:text-white hover:bg-white/20 bg-transparent"
+              >
                 <Link href="/tours">
                   <ArrowLeft className="mr-2 h-4 w-4" />
                   Back to Tours
@@ -108,7 +120,9 @@ export default async function TourDetailPage({ params }: { params: Promise<{ slu
               {/* Description */}
               <section>
                 <h2 className="text-2xl font-bold mb-4">About This Tour</h2>
-                <p className="text-muted-foreground leading-relaxed">{tour.description}</p>
+                <p className="text-muted-foreground leading-relaxed">
+                  {tour.description}
+                </p>
               </section>
 
               {/* Highlights */}
@@ -130,7 +144,9 @@ export default async function TourDetailPage({ params }: { params: Promise<{ slu
               <div className="grid sm:grid-cols-2 gap-6">
                 {tour.included && tour.included.length > 0 && (
                   <section>
-                    <h3 className="text-xl font-bold mb-4">What's Included</h3>
+                    <h3 className="text-xl font-bold mb-4">
+                      {"What's Included"}
+                    </h3>
                     <ul className="space-y-2">
                       {tour.included.map((item, index) => (
                         <li key={index} className="flex items-start gap-2 text-sm">
@@ -144,7 +160,9 @@ export default async function TourDetailPage({ params }: { params: Promise<{ slu
 
                 {tour.excluded && tour.excluded.length > 0 && (
                   <section>
-                    <h3 className="text-xl font-bold mb-4">What's Excluded</h3>
+                    <h3 className="text-xl font-bold mb-4">
+                      {"What's Excluded"}
+                    </h3>
                     <ul className="space-y-2">
                       {tour.excluded.map((item, index) => (
                         <li key={index} className="flex items-start gap-2 text-sm">
@@ -189,9 +207,12 @@ export default async function TourDetailPage({ params }: { params: Promise<{ slu
                   <h2 className="text-2xl font-bold mb-4">Gallery</h2>
                   <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
                     {tour.gallery.map((image, index) => (
-                      <div key={index} className="relative aspect-square rounded-lg overflow-hidden">
+                      <div
+                        key={index}
+                        className="relative aspect-square rounded-lg overflow-hidden"
+                      >
                         <Image
-                          src={image.asset.url || "/placeholder.svg"}
+                          src={image.asset.url || '/placeholder.svg'}
                           alt={`${tour.title} - Image ${index + 1}`}
                           fill
                           className="object-cover hover:scale-105 transition-transform duration-300"
@@ -215,19 +236,17 @@ export default async function TourDetailPage({ params }: { params: Promise<{ slu
                       </div>
                       <p className="text-sm text-muted-foreground">per person</p>
                     </div>
-                    
+
                     <Separator className="my-6" />
 
                     <div className="space-y-3">
                       {tour.packagePdf?.asset?.url && (
-                        <Button 
-                          variant="outline" 
-                          className="w-full bg-transparent" 
-                          asChild
-                        >
+                        <Button variant="outline" className="w-full bg-transparent" asChild>
                           <a
                             href={tour.packagePdf.asset.url}
-                            download={tour.packagePdf.asset.originalFilename || `${tour.title}.pdf`}
+                            download={
+                              tour.packagePdf.asset.originalFilename || `${tour.title}.pdf`
+                            }
                             target="_blank"
                             rel="noopener noreferrer"
                           >
@@ -249,7 +268,7 @@ export default async function TourDetailPage({ params }: { params: Promise<{ slu
                     <h3 className="font-semibold mb-4">Need Help?</h3>
                     <div className="space-y-3 text-sm">
                       {settings?.email && (
-                        <a 
+                        <a
                           href={`mailto:${settings.email}`}
                           className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors"
                         >
@@ -258,7 +277,7 @@ export default async function TourDetailPage({ params }: { params: Promise<{ slu
                         </a>
                       )}
                       {settings?.phone && (
-                        <a 
+                        <a
                           href={`tel:${settings.phone}`}
                           className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors"
                         >
@@ -274,7 +293,9 @@ export default async function TourDetailPage({ params }: { params: Promise<{ slu
           </div>
         </div>
       </main>
+
       <Footer settings={settings || undefined} />
+
       {settings?.whatsappNumber && (
         <WhatsAppButton phoneNumber={settings.whatsappNumber} />
       )}

@@ -5,7 +5,9 @@ import { TourCard } from '@/components/tour-card'
 import { client } from '@/sanity/client'
 import { toursQuery, siteSettingsQuery } from '@/sanity/queries'
 import type { Tour, SiteSettings } from '@/sanity/types'
+
 export const revalidate = 0
+
 async function getToursData() {
   try {
     const [tours, settings] = await Promise.all([
@@ -38,7 +40,9 @@ export default async function ToursPage() {
               Our Tours & Packages
             </h1>
             <p className="text-lg text-gray-300 max-w-2xl mx-auto text-pretty">
-              Discover authentic African experiences curated with care. Each package is designed to immerse you in local culture and create unforgettable memories.
+              {
+                'Discover authentic African experiences curated with care. Each package is designed to immerse you in local culture and create unforgettable memories.'
+              }
             </p>
           </div>
         </section>
@@ -55,14 +59,16 @@ export default async function ToursPage() {
             ) : (
               <div className="text-center py-16">
                 <p className="text-muted-foreground text-lg">
-                  No tours available at the moment. Please check back soon!
+                  {'No tours available at the moment. Please check back soon!'}
                 </p>
               </div>
             )}
           </div>
         </section>
       </main>
+
       <Footer settings={settings || undefined} />
+
       {settings?.whatsappNumber && (
         <WhatsAppButton phoneNumber={settings.whatsappNumber} />
       )}
