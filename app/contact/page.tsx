@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import { Header } from '@/components/header'
 import { Footer } from '@/components/footer'
 import { WhatsAppButton } from '@/components/whatsapp-button'
@@ -37,7 +38,7 @@ export default async function ContactPage() {
               Get in Touch
             </h1>
             <p className="text-lg text-gray-300 max-w-2xl mx-auto text-pretty">
-              Ready to start your journey? We're here to help you plan your perfect adventure.
+              {"Ready to start your journey? We're here to help you plan your perfect adventure."}
             </p>
           </div>
         </section>
@@ -51,7 +52,7 @@ export default async function ContactPage() {
                 <div>
                   <h2 className="text-2xl font-bold mb-6">Contact Information</h2>
                   <p className="text-muted-foreground mb-8 leading-relaxed">
-                    Reach out to us through any of the following channels. We typically respond within 24 hours.
+                    {"Reach out to us through any of the following channels. We typically respond within 24 hours."}
                   </p>
                 </div>
 
@@ -65,7 +66,7 @@ export default async function ContactPage() {
                           </div>
                           <div>
                             <h3 className="font-semibold mb-1">Email</h3>
-                            <a 
+                            <a
                               href={`mailto:${settings.email}`}
                               className="text-muted-foreground hover:text-primary transition-colors"
                             >
@@ -86,7 +87,7 @@ export default async function ContactPage() {
                           </div>
                           <div>
                             <h3 className="font-semibold mb-1">Phone</h3>
-                            <a 
+                            <a
                               href={`tel:${settings.phone}`}
                               className="text-muted-foreground hover:text-primary transition-colors"
                             >
@@ -124,7 +125,7 @@ export default async function ContactPage() {
                           <div className="flex-1">
                             <h3 className="font-semibold mb-1">WhatsApp</h3>
                             <p className="text-muted-foreground mb-3">Chat with us instantly</p>
-                            <Button 
+                            <Button
                               className="bg-[#25D366] hover:bg-[#20BA5A] text-white w-full sm:w-auto"
                               asChild
                             >
@@ -151,9 +152,9 @@ export default async function ContactPage() {
                   <CardContent className="p-8 flex flex-col justify-center h-full">
                     <h2 className="text-2xl font-bold mb-4">Ready to Explore?</h2>
                     <p className="text-gray-300 mb-6 leading-relaxed">
-                      Your dream African adventure is just a conversation away. Let's create an unforgettable 
-                      experience tailored to your interests and travel style.
+                      {"Your dream African adventure is just a conversation away. Let's create an unforgettable experience tailored to your interests and travel style."}
                     </p>
+
                     <ul className="space-y-3 mb-8">
                       <li className="flex items-center gap-2">
                         <div className="h-1.5 w-1.5 rounded-full bg-secondary" />
@@ -172,6 +173,7 @@ export default async function ContactPage() {
                         <span className="text-sm text-gray-300">Authentic cultural experiences</span>
                       </li>
                     </ul>
+
                     <Button variant="secondary" className="w-full" asChild>
                       <a href="/tours">View Our Packages</a>
                     </Button>
@@ -182,7 +184,9 @@ export default async function ContactPage() {
           </div>
         </section>
       </main>
+
       <Footer settings={settings || undefined} />
+
       {settings?.whatsappNumber && (
         <WhatsAppButton phoneNumber={settings.whatsappNumber} />
       )}
