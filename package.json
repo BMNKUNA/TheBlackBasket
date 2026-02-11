@@ -1,0 +1,50 @@
+{
+  "name": "black-basket-travel",
+  "private": true,
+  "version": "1.0.0",
+  "license": "UNLICENSED",
+  "scripts": {
+    "dev": "next dev -p 3000",
+    "dev:studio": "sanity dev -p 3333",
+    "build": "next build",
+    "start": "next start -p 3000",
+    "studio:build": "sanity build",
+    "studio:start": "sanity start",
+    "studio:deploy": "sanity deploy",
+    "studio:deploy-graphql": "sanity graphql deploy"
+  },
+  "dependencies": {
+    "@radix-ui/react-separator": "^1.1.8",
+    "@radix-ui/react-slot": "^1.2.4",
+    "@sanity/client": "^7.14.1",
+    "@sanity/image-url": "^2.0.3",
+    "@sanity/vision": "^5.9.0",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "groq": "^5.9.0",
+    "lucide-react": "^0.563.0",
+    "next": "^15.0.0",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "sanity": "^5.9.0",
+    "styled-components": "^6.1.18",
+    "tailwind-merge": "^3.4.0",
+    "tailwindcss-animate": "^1.0.7"
+  },
+  "devDependencies": {
+    "@sanity/eslint-config-studio": "^6.0.0",
+    "@types/react": "^19.1.0",
+    "autoprefixer": "^10.4.24",
+    "eslint": "^9.28.0",
+    "postcss": "^8.5.6",
+    "prettier": "^3.5.0",
+    "tailwindcss": "^3.4.17",
+    "typescript": "^5.8.0"
+  },
+  "prettier": {
+    "semi": false,
+    "printWidth": 100,
+    "bracketSpacing": false,
+    "singleQuote": true
+  }
+}
