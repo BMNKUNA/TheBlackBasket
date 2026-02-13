@@ -8,7 +8,6 @@ import { client } from '@/sanity/client'
 import { toursQuery, siteSettingsQuery } from '@/sanity/queries'
 import type { Tour, SiteSettings } from '@/sanity/types'
 
-export const revalidate = 0
 
 async function getToursData() {
   try {
