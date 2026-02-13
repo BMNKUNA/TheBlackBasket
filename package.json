@@ -32,7 +32,6 @@
     "groq": "^5.9.0",
     "lucide-react": "^0.563.0",
     "next": "^15.0.0",
-    "next-sanity": "^10.1.4",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "sanity": "^5.9.0",

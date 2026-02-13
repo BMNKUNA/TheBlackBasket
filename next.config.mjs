@@ -6,6 +6,16 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
+
+  async redirects() {
+    return [
+      {
+        source: "/studio/:path*",
+        destination: "https://bbt.yestech.co.za/:path*",
+        permanent: false,
+      },
+    ]
+  },
 }
 
 export default nextConfig
