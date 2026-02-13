@@ -11,7 +11,7 @@ const nextConfig = {
     return [
       {
         source: "/studio/:path*",
-        destination: "https://tw25u6efuvr5307kqmmxgs0l.sanity.studio/:path*",
+        destination: "https://keanx.yestech.co.za/:path*",
         permanent: false,
       },
     ]
