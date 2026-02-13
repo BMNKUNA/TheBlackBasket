@@ -11,7 +11,7 @@ const nextConfig = {
     return [
       {
         source: "/studio/:path*",
-        destination: "https://keanx.yestech.co.za/:path*",
+        destination: "https://the-black-basket-cms.vercel.app/:path*",
         permanent: false,
       },
     ]
