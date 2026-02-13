@@ -10,6 +10,9 @@ export default defineConfig({
   projectId: 'zp67d9fj',
   dataset: 'production',
 
+  // IMPORTANT — ensures the studio is served from the root of its domain
+  basePath: '/',
+
   plugins: [deskTool(), visionTool()],
 
   schema: {
