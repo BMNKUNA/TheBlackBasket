@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic'
+export const revalidate = 0
 import { HeroSection } from '@/components/hero-section'
 import { AboutSection } from '@/components/about-section'
 import { FounderSection } from '@/components/founder-section'

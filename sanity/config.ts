@@ -4,7 +4,7 @@ export const config = {
   apiVersion: process.env.NEXT_PUBLIC_SANITY_API_VERSION || '2024-01-01',
 
   // Use CDN only in production (faster but cached)
-  useCdn: process.env.NODE_ENV === 'production',
+  useCdn: false,
 
   // Read token (ONLY needed if dataset is private)
   token: process.env.SANITY_API_READ_TOKEN || undefined,
